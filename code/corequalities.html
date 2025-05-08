@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Values Display with Breathtaking Entrance Animation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #03fcf4;
+      --main-color-dark: #02c9c3;
+      --main-color-light: #7bfdfa;
+      --accent-glow: 0 0 20px var(--main-color), 0 0 40px rgba(3, 252, 244, 0.4);
+      --text-glow: 0 0 5px rgba(3, 252, 244, 0.7);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: 'Rajdhani', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #ffffff;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards 0.5s;
+    }
+
+    .title-container {
+      margin-bottom: 40px;
+      padding: 10px 25px;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: slideDown 1.2s ease forwards 1s;
+      position: relative;
+    }
+    
+    .title-container:hover {
+      transform: translateY(-5px);
+      border-color: var(--main-color);
+      box-shadow: var(--accent-glow);
+    }
+    
+    .title-container::before,
+    .title-container::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--main-color);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .title-container::before {
+      top: -5px;
+      left: -5px;
+      border-right: none;
+      border-bottom: none;
+    }
+    
+    .title-container::after {
+      bottom: -5px;
+      right: -5px;
+      border-left: none;
+      border-top: none;
+    }
+    
+    .title-container:hover::before,
+    .title-container:hover::after {
+      opacity: 1;
+      width: 30px;
+      height: 30px;
+    }
+
+    .main-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: #ffffff;
+      text-align: center;
+      margin: 0;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    
+    .main-title .highlight-text {
+      color: var(--main-color);
+      position: relative;
+      display: inline-block;
+      text-shadow: var(--text-glow);
+    }
+    
+    .main-title .highlight-text::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: var(--main-color);
+      animation: underlineExpand 1s ease forwards 2s;
+      box-shadow: var(--text-glow);
+    }
+
+    .values-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .value-box {
+      width: 300px;
+      height: 420px;
+      padding: 30px 20px;
+      text-align: center;
+      border: 2px solid var(--main-color);
+      border-radius: 12px;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      transform: scale(0.8) translateY(40px);
+      background: rgba(3, 252, 244, 0.03);
+      backdrop-filter: blur(3px);
+    }
+    
+    .value-box:nth-child(1) {
+      animation: boxEnter 1s ease forwards 1.5s;
+    }
+    
+    .value-box:nth-child(2) {
+      animation: boxEnter 1s ease forwards 1.8s;
+    }
+    
+    .value-box:nth-child(3) {
+      animation: boxEnter 1s ease forwards 2.1s;
+    }
+    
+    .value-box::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, transparent 60%, var(--main-color) 100%);
+      border-radius: 12px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .value-box:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: var(--accent-glow);
+    }
+    
+    .value-box:hover::before {
+      opacity: 0.3;
+    }
+
+    .icon {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .value-box:nth-child(1) .icon {
+      animation: fadeUp 0.8s ease forwards 2.2s;
+    }
+    
+    .value-box:nth-child(2) .icon {
+      animation: fadeUp 0.8s ease forwards 2.5s;
+    }
+    
+    .value-box:nth-child(3) .icon {
+      animation: fadeUp 0.8s ease forwards 2.8s;
+    }
+
+    .icon img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      transition: all 0.7s ease;
+      filter: drop-shadow(0 0 5px var(--main-color));
+    }
+    
+    .value-box:hover .icon img {
+      transform: rotate(8deg) scale(1.15);
+      filter: drop-shadow(0 0 8px var(--main-color));
+    }
+
+    .title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--main-color);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0;
+      position: relative;
+      display: inline-block;
+      text-shadow: var(--text-glow);
+    }
+    
+    .title::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background: var(--main-color);
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: var(--text-glow);
+    }
+    
+    .value-box:nth-child(1) .title {
+      animation: fadeIn 0.8s ease forwards 2.4s;
+    }
+    
+    .value-box:nth-child(2) .title {
+      animation: fadeIn 0.8s ease forwards 2.7s;
+    }
+    
+    .value-box:nth-child(3) .title {
+      animation: fadeIn 0.8s ease forwards 3s;
+    }
+
+    .description {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #ffffff;
+      opacity: 0;
+    }
+    
+    .value-box:nth-child(1) .description {
+      animation: fadeIn 0.8s ease forwards 2.6s;
+    }
+    
+    .value-box:nth-child(2) .description {
+      animation: fadeIn 0.8s ease forwards 2.9s;
+    }
+    
+    .value-box:nth-child(3) .description {
+      animation: fadeIn 0.8s ease forwards 3.2s;
+    }
+    
+  
+    
+    
+    /* Lightning effect elements */
+    .lightning {
+      position: absolute;
+      background: var(--main-color);
+      height: 3px;
+      opacity: 0;
+      z-index: -1;
+      box-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);
+    }
+    
+    .lightning1 {
+      width: 100%;
+      top: 30%;
+      left: -100%;
+      animation: lightningFlash1 1s ease-out forwards 0.5s;
+    }
+    
+    .lightning2 {
+      width: 100%;
+      top: 70%;
+      right: -100%;
+      animation: lightningFlash2 1s ease-out forwards 0.7s;
+    }
+
+    /* Corner decorations */
+    .corner {
+      position: fixed;
+      width: 150px;
+      height: 150px;
+      opacity: 0.5;
+      z-index: -1;
+    }
+    
+    .corner-top-left {
+      top: 0;
+      left: 0;
+      border-top: 2px solid var(--main-color);
+      border-left: 2px solid var(--main-color);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 3s;
+    }
+    
+    .corner-bottom-right {
+      bottom: 0;
+      right: 0;
+      border-bottom: 2px solid var(--main-color);
+      border-right: 2px solid var(--main-color);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 3s;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes slideDown {
+      0% { 
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes boxEnter {
+      0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(40px);
+      }
+      70% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-15px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes backdropPulse {
+      0% {
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      70% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+    
+    @keyframes lightningFlash1 {
+      0% {
+        opacity: 0;
+        left: -100%;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      40% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 0;
+        left: 100%;
+      }
+    }
+    
+    @keyframes lightningFlash2 {
+      0% {
+        opacity: 0;
+        right: -100%;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      40% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 0;
+        right: 100%;
+      }
+    }
+    
+    @keyframes underlineExpand {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    /* Responsive design */
+    @media (max-width: 1000px) {
+      .values-container {
+        gap: 30px;
+      }
+      
+      .value-box {
+        width: 280px;
+        height: 400px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 32px;
+      }
+      
+      .values-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .value-box {
+        width: 90%;
+        max-width: 320px;
+      }
+      
+      .main-container {
+        padding: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .main-title {
+        font-size: 28px;
+      }
+      
+      .title {
+        font-size: 28px;
+      }
+      
+      .description {
+        font-size: 16px;
+      }
+      
+      .value-box {
+        height: auto;
+        min-height: 380px;
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background effects -->
+  <div class="backdrop"></div>
+
+  <div class="lightning lightning1"></div>
+  <div class="lightning lightning2"></div>
+  <div class="corner corner-top-left"></div>
+  <div class="corner corner-bottom-right"></div>
+  
+  <div class="main-container">
+    <div class="title-container">
+      <h1 class="main-title">Our <span class="highlight-text">Core Values</span> At SciTrade</h1>
+    </div>
+    
+    <div class="values-container">
+      <div class="value-box">
+        <div class="icon">
+          <img src="https://raw.githubusercontent.com/YoussefBechara/Scitrade/main/Icons/honestyicon.png" alt="Honesty Medal Icon" />
+        </div>
+        <div class="title">Honesty</div>
+        <div class="description">We pride ourselves on honesty and delivering transparent, reliable tools and insights you can trust, every step of the way.</div>
+      </div>
+      
+      <div class="value-box">
+        <div class="icon">
+          <img src="https://raw.githubusercontent.com/YoussefBechara/Scitrade/main/Icons/consistencyicon.png" alt="Consistency Chart Icon" />
+        </div>
+        <div class="title">Consistency</div>
+        <div class="description">Consistency is at the core of everything we do, from the performance of our tools to the support we provide so you can trade with confidence.</div>
+      </div>
+      
+      <div class="value-box">
+        <div class="icon">
+          <img src="https://raw.githubusercontent.com/YoussefBechara/Scitrade/main/Icons/bullicon.png" alt="Bull Confidence Icon" />
+        </div>
+        <div class="title">Confidence</div>
+        <div class="description">We build confidence through proven strategies, clear insights, and reliable tools empowering you to trade boldly and decisively.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
