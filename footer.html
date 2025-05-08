@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium Trading Footer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <title>SciTrade Footer for Google Sites</title>
+  <!-- External styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- This HTML file should be hosted at your GitHub Pages -->
+  <!-- Then embed it in Google Sites following the instructions below -->
+  
   <style>
     :root {
       --primary-red: #03fcf4;
@@ -30,13 +32,19 @@
       font-family: 'Rajdhani', sans-serif;
       background-color: transparent;
       color: var(--footer-text);
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       line-height: 1.6;
       letter-spacing: 0.3px;
+      /* Critical fixes for Google Sites */
+      overflow-x: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
+    
+    /* Google Fonts preload for better performance */
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap');
     
     .footer {
       background: transparent;
@@ -63,7 +71,6 @@
       font-weight: normal;
       margin-bottom: 20px;
       color: #fff;
-      
       transition: var(--transition-standard);
       letter-spacing: 1px;
     }
@@ -84,8 +91,6 @@
       padding: 0 20px;
       position: relative;
     }
-    
-
     
     .footer-section h3 {
       font-family: 'Rajdhani', sans-serif;
@@ -134,7 +139,6 @@
     }
     
     .footer-links a:hover {
-        
         font-weight: 300;
         transform: translateY(-1px);
         text-shadow: 0 0 8px rgba(3, 252, 244, 0.3);
@@ -449,17 +453,17 @@
         transform: translateY(0);
       }
     }
-    /* Change text selection/highlight color */
+    
     ::selection {
       background: #00ffff;
-      color: #000000; /* Optional: change text color when selected for better contrast */
+      color: #000000;
     }
     
-    /* For Firefox */
     ::-moz-selection {
       background: #00ffff;
       color: #000000;
     }
+    
     .form-controls {
       position: relative;
       transition: var(--transition-standard);
@@ -486,10 +490,6 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <div style="flex-grow: 1;"></div>
   
   <footer class="footer">
     <div class="footer-content">
@@ -511,22 +511,22 @@
           </div>
         </form>
         <div class="social-icons">
-          <a href="https://www.instagram.com/SciTrade/" class="social-icon" aria-label="Instagram">
+          <a href="https://www.instagram.com/SciTrade/" class="social-icon" target="_top" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://x.com/SciTrade_FX" class="social-icon" aria-label="Twitter">
+          <a href="https://x.com/SciTrade_FX" class="social-icon" target="_top" aria-label="Twitter">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="https://www.youtube.com/@SciTrade" class="social-icon" aria-label="YouTube">
+          <a href="https://www.youtube.com/@SciTrade" class="social-icon" target="_top" aria-label="YouTube">
             <i class="fab fa-youtube"></i>
           </a>
-          <a href="https://github.com/SciTrade" class="social-icon" aria-label="GitHub">
+          <a href="https://github.com/SciTrade" class="social-icon" target="_top" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://www.tiktok.com/@SciTrade.fx" class="social-icon" aria-label="TikTok">
+          <a href="https://www.tiktok.com/@SciTrade.fx" class="social-icon" target="_top" aria-label="TikTok">
             <i class="fab fa-tiktok"></i>
           </a>
-          <a href="https://whatsapp.com/channel/0029Vb5VrQLK0IBi7LYKYP2H" class="social-icon" aria-label="WhatsApp Channel">
+          <a href="https://whatsapp.com/channel/0029Vb5VrQLK0IBi7LYKYP2H" class="social-icon" target="_top" aria-label="WhatsApp Channel">
             <i class="fas fa-link"></i>
           </a>
         </div>
@@ -535,22 +535,22 @@
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul class="footer-links">
-          <li><a href="https://sites.google.com/view/scitrade/home">Home</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/mission">About Us</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/products">Products</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/courses">Courses</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/reviews">Reviews</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/home" target="_top">Home</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/mission" target="_top">About Us</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/products" target="_top">Products</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/courses" target="_top">Courses</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/reviews" target="_top">Reviews</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
-          <li><a href="https://sites.google.com/view/scitrade/faq">FAQ</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/results">Results</a></li>
-          <li><a href="https://whatsapp.com/channel/0029Vb5VrQLK0IBi7LYKYP2H">Community</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/contact">Contact Support</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/privacypolicy">Privacy Policy</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/faq" target="_top">FAQ</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/results" target="_top">Results</a></li>
+          <li><a href="https://whatsapp.com/channel/0029Vb5VrQLK0IBi7LYKYP2H" target="_top">Community</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/contact" target="_top">Contact Support</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/privacypolicy" target="_top">Privacy Policy</a></li>
         </ul>
       </div>
       
@@ -558,24 +558,27 @@
         <h3>Contact Us</h3>
         <div class="contact-info">
           <p><i class="fas fa-map-marker-alt"></i> Lebanon</p>
-          <p><i class="fas fa-envelope"></i> <a href="mailto:scitrade@gmail.com">scitrade@gmail.com</a></p>
-          <p><i class="fas fa-phone"></i> <a href="tel:+96107506070">+961 07 50 60 70</a></p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:scitrade@gmail.com" target="_top">scitrade@gmail.com</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:+96107506070" target="_top">+961 07 50 60 70</a></p>
         </div>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>SciTrade | Copyright &copy; 2025 | All Rights Reserved</p>
+      <p>SciTrade | Copyright &copy; <span id="current-year">2025</span> | All Rights Reserved</p>
       <div>
-        <a href="https://sites.google.com/view/scitrade/termsconditions">Terms and Conditions</a>
-        <a href="https://sites.google.com/view/scitrade/privacypolicy">Privacy Policy</a>
-        <a href="https://sites.google.com/view/scitrade/cookiepolicy">Cookie Policy</a>
+        <a href="https://sites.google.com/view/scitrade/termsconditions" target="_top">Terms and Conditions</a>
+        <a href="https://sites.google.com/view/scitrade/privacypolicy" target="_top">Privacy Policy</a>
+        <a href="https://sites.google.com/view/scitrade/cookiepolicy" target="_top">Cookie Policy</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // This script handles the newsletter form submission
+    // Update copyright year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Handle newsletter form submission
     document.getElementById('newsletterForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const form = this;
@@ -603,29 +606,34 @@
       }, 3000);
     });
     
-    // Script to communicate iframe height to parent
-    window.addEventListener('load', function() {
-      // Send message to parent with current height
-      if (window.parent) {
-        const height = document.body.scrollHeight;
-        window.parent.postMessage({ type: 'setHeight', height: height }, '*');
-      }
+    // Fix for Google Sites - Make links work properly
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ensure all links work properly in Google Sites
+      const allLinks = document.querySelectorAll('a:not([href^="javascript:"])');
+      allLinks.forEach(link => {
+        // Only process links that don't already have target="_top"
+        if (!link.getAttribute('target') || link.getAttribute('target') !== '_top') {
+          link.setAttribute('target', '_top');
+        }
+      });
     });
     
-    // Handle all link clicks to bypass Google Sites restrictions
-    document.addEventListener('click', function(e) {
-      const link = e.target.closest('a');
-      if (link && link.href && !link.href.includes('javascript:') && !link.href.includes('#')) {
-        e.preventDefault();
-        
-        // Use window.top to ensure we're targeting the top-level window
-        // This is critical for Google Sites integration
-        window.top.location.href = link.href;
-        
-        // Alternative approach if the above doesn't work:
-        // window.open(link.href, '_top');
+    // Send height to parent window
+    function sendHeightToParent() {
+      // Calculate total height
+      const height = document.body.scrollHeight;
+      // Send message to parent window
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'setHeight', height: height }, '*');
       }
-    }, true);
+    }
+    
+    // Run on load and when window resizes
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+    
+    // Run periodically to ensure correct sizing (handles dynamic content)
+    setInterval(sendHeightToParent, 1000);
   </script>
 </body>
 </html>
