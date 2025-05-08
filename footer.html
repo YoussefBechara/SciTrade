@@ -511,22 +511,22 @@
           </div>
         </form>
         <div class="social-icons">
-          <a href="https://www.instagram.com/SciTrade/" class="social-icon" aria-label="Instagram">
+          <a href="https://www.instagram.com/SciTrade/" class="social-icon" target="_parent" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://x.com/SciTrade_FX" class="social-icon" aria-label="Twitter">
+          <a href="https://x.com/SciTrade_FX" class="social-icon" target="_parent" aria-label="Twitter">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="https://www.youtube.com/@SciTrade" class="social-icon" aria-label="YouTube">
+          <a href="https://www.youtube.com/@SciTrade" class="social-icon" target="_parent" aria-label="YouTube">
             <i class="fab fa-youtube"></i>
           </a>
-          <a href="https://github.com/SciTrade" class="social-icon" aria-label="GitHub">
+          <a href="https://github.com/SciTrade" class="social-icon" target="_parent" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://www.tiktok.com/@SciTrade.fx" class="social-icon" aria-label="TikTok">
+          <a href="https://www.tiktok.com/@SciTrade.fx" class="social-icon" target="_parent" aria-label="TikTok">
             <i class="fab fa-tiktok"></i>
           </a>
-          <a href="https://whatsapp.com/channel/0029Vb5VrQLK0IBi7LYKYP2H" class="social-icon" aria-label="WhatsApp Channel">
+          <a href="https://whatsapp.com/channel/0029Vb5VrQLK0IBi7LYKYP2H" class="social-icon" target="_parent" aria-label="WhatsApp Channel">
             <i class="fas fa-link"></i>
           </a>
         </div>
@@ -535,22 +535,22 @@
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul class="footer-links">
-          <li><a href="https://sites.google.com/view/scitrade/home">Home</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/mission">About Us</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/products">Products</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/courses">Courses</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/reviews">Reviews</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/home" target="_parent">Home</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/mission" target="_parent">About Us</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/products" target="_parent">Products</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/courses" target="_parent">Courses</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/reviews" target="_parent">Reviews</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
-          <li><a href="https://sites.google.com/view/scitrade/faq">FAQ</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/results">Results</a></li>
-          <li><a href="https://whatsapp.com/channel/0029Vb5VrQLK0IBi7LYKYP2H">Community</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/contact">Contact Support</a></li>
-          <li><a href="https://sites.google.com/view/scitrade/privacypolicy">Privacy Policy</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/faq" target="_parent">FAQ</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/results" target="_parent">Results</a></li>
+          <li><a href="https://whatsapp.com/channel/0029Vb5VrQLK0IBi7LYKYP2H" target="_parent">Community</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/contact" target="_parent">Contact Support</a></li>
+          <li><a href="https://sites.google.com/view/scitrade/privacypolicy" target="_parent">Privacy Policy</a></li>
         </ul>
       </div>
       
@@ -558,8 +558,8 @@
         <h3>Contact Us</h3>
         <div class="contact-info">
           <p><i class="fas fa-map-marker-alt"></i> Lebanon</p>
-          <p><i class="fas fa-envelope"></i> <a href="mailto:scitrade@gmail.com">scitrade@gmail.com</a></p>
-          <p><i class="fas fa-phone"></i> <a href="tel:+96107506070">+961 07 50 60 70</a></p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:scitrade@gmail.com" target="_parent">scitrade@gmail.com</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:+96107506070" target="_parent">+961 07 50 60 70</a></p>
         </div>
       </div>
     </div>
@@ -567,14 +567,15 @@
     <div class="footer-bottom">
       <p>SciTrade | Copyright &copy; 2025 | All Rights Reserved</p>
       <div>
-        <a href="https://sites.google.com/view/scitrade/termsconditions">Terms and Conditions</a>
-        <a href="https://sites.google.com/view/scitrade/privacypolicy">Privacy Policy</a>
-        <a href="https://sites.google.com/view/scitrade/cookiepolicy">Cookie Policy</a>
+        <a href="https://sites.google.com/view/scitrade/termsconditions" target="_parent">Terms and Conditions</a>
+        <a href="https://sites.google.com/view/scitrade/privacypolicy" target="_parent">Privacy Policy</a>
+        <a href="https://sites.google.com/view/scitrade/cookiepolicy" target="_parent">Cookie Policy</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // This script handles the newsletter form submission
     document.getElementById('newsletterForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const form = this;
@@ -600,6 +601,27 @@
           formControls.classList.remove('submitted');
         }, 500);
       }, 3000);
+    });
+    
+    // Script to communicate iframe height to parent
+    window.addEventListener('load', function() {
+      // Send message to parent with current height
+      if (window.parent) {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+      }
+    });
+    
+    // Handle clicks on all links to ensure they open properly
+    document.addEventListener('DOMContentLoaded', function() {
+      // Optional: Make all links open in parent by default
+      const allLinks = document.querySelectorAll('a');
+      allLinks.forEach(link => {
+        // Skip links that already have target set or are anchor links
+        if (!link.hasAttribute('target') && !link.href.includes('#')) {
+          link.setAttribute('target', '_parent');
+        }
+      });
     });
   </script>
 </body>
