@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciTrade Navigation</title>
+    <!-- Import Rajdhani font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00ffff;
+            --dark-cyan: #03c9c2;
+            --white: #ffffff;
+            --black: #000000;
+            --transparent-black: rgba(0, 0, 0, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .sci-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 0;
+            z-index: 1000;
+            font-family: 'Rajdhani', sans-serif;
+            background-color: transparent; /* Fully transparent background */
+            transition: all 0.3s ease;
+        }
+        
+        .sci-navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.15);
+        }
+        
+        .sci-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 95%; /* Increased width for more spacing between elements */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .sci-logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: auto; /* Push logo to far left */
+        }
+        
+        .sci-logo {
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+        
+        .sci-logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.7));
+        }
+        
+        .sci-nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            margin-left: auto; /* Push navigation links to far right */
+        }
+        
+        .sci-nav-link {
+            position: relative;
+            padding: 8px 16px;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 18px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        
+        .sci-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 2px; /* Reduced space between text and underline */
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--cyan);
+            transition: width 0.3s ease, left 0.3s ease;
+            transform: translateX(-50%); /* Center the underline */
+        }
+        
+        .sci-nav-link:hover {
+            color: var(--cyan);
+        }
+        
+        .sci-nav-link:hover::after {
+            width: calc(100% - 32px); /* Make underline same length as text */
+            left: 50%; /* Keep centered */
+        }
+        
+        .sci-nav-link.active {
+            color: var(--cyan);
+        }
+        
+        .sci-nav-link.active::after {
+            width: calc(100% - 32px); /* Make underline same length as text */
+            left: 50%; /* Keep centered */
+        }
+        
+        .sci-mobile-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .sci-mobile-toggle:hover {
+            color: var(--cyan);
+            transform: scale(1.1);
+        }
+        
+        /* Animated hamburger menu */
+        .sci-hamburger {
+            width: 30px;
+            height: 20px;
+            position: relative;
+            margin: 0 auto;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+        }
+
+        .sci-hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: var(--white);
+            border-radius: 9px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .sci-hamburger span:nth-child(1) {
+            top: 0px;
+        }
+
+        .sci-hamburger span:nth-child(2),
+        .sci-hamburger span:nth-child(3) {
+            top: 9px;
+        }
+
+        .sci-hamburger span:nth-child(4) {
+            top: 18px;
+        }
+
+        .sci-hamburger.open span:nth-child(1) {
+            top: 9px;
+            width: 0%;
+            left: 50%;
+        }
+
+        .sci-hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+            background: var(--cyan);
+        }
+
+        .sci-hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+            background: var(--cyan);
+        }
+
+        .sci-hamburger.open span:nth-child(4) {
+            top: 9px;
+            width: 0%;
+            left: 50%;
+        }
+        
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .sci-nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.5s ease-in-out;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+                gap: 0;
+            }
+            
+            .sci-nav-links.open {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .sci-nav-item {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .sci-nav-link {
+                display: block;
+                padding: 15px 0;
+                font-size: 20px;
+                width: 100%;
+            }
+            
+            .sci-nav-link::after {
+                bottom: 5px;
+            }
+            
+            .sci-nav-link:hover::after {
+                width: 50%; /* Make underline width more appropriate for mobile */
+            }
+            
+            .sci-nav-link:hover {
+                background-color: rgba(0, 255, 255, 0.1);
+            }
+            
+            .sci-mobile-toggle {
+                display: block;
+            }
+        }
+        
+        /* Scroll indicator */
+        .sci-scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), #06f9ff, #00ddff);
+            z-index: 1001;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="sci-scroll-progress" id="scrollProgress"></div>
+    <nav class="sci-navbar" id="sciNavbar">
+        <div class="sci-nav-container">
+            <div class="sci-logo-container">
+                <a href="index.html">
+                    <img src="https://raw.githubusercontent.com/YoussefBechara/SciTrade/main/Icons/scitradelogotransp.png" alt="SciTrade Logo" class="sci-logo">
+                </a>
+            </div>
+            
+            <ul class="sci-nav-links" id="sciNavLinks">
+                <li class="sci-nav-item">
+                    <a href="index.html" class="sci-nav-link active">Home</a>
+                </li>
+                <li class="sci-nav-item">
+                    <a href="products.html" class="sci-nav-link">Products</a>
+                </li>
+                <li class="sci-nav-item">
+                    <a href="courses.html" class="sci-nav-link">Courses</a>
+                </li>
+                <li class="sci-nav-item">
+                    <a href="reviews.html" class="sci-nav-link">Reviews</a>
+                </li>
+                <li class="sci-nav-item">
+                    <a href="results.html" class="sci-nav-link">Results</a>
+                </li>
+                <li class="sci-nav-item">
+                    <a href="mission.html" class="sci-nav-link">Mission</a>
+                </li>
+                <li class="sci-nav-item">
+                    <a href="contact.html" class="sci-nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <button class="sci-mobile-toggle" id="mobileToggle">
+                <div class="sci-hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('sciNavbar');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navLinks = document.getElementById('sciNavLinks');
+            const hamburger = document.querySelector('.sci-hamburger');
+            const scrollProgress = document.getElementById('scrollProgress');
+            
+            // Handle scroll events
+            window.addEventListener('scroll', function() {
+                // Add scrolled class to navbar when scrolled
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Update scroll progress bar
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                scrollProgress.style.width = scrolled + "%";
+            });
+            
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+                hamburger.classList.toggle('open');
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.sci-nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    hamburger.classList.remove('open');
+                });
+            });
+            
+            // Set active link based on current page
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.sci-nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
