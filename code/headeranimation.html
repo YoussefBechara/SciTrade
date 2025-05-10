@@ -25,7 +25,7 @@
         
         body, html {
             width: 100%;
-            height: 100%;
+            height: 100vh;
             font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
         }
@@ -413,8 +413,8 @@
         
         // Set canvas dimensions
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
         }
         
         resizeCanvas();
